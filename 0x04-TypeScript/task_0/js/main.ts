@@ -22,8 +22,8 @@
 
   const studentsList: Student[] = [student1, student2];
 
+  const body = document.querySelector('body') as HTMLBodyElement;
   const table = document.createElement('table');
-  const body = document.querySelector('body');
 
   studentsList.forEach((student) => {
     const row = table.insertRow();
