@@ -34,6 +34,7 @@ const director1: Directors = {
 
 console.log(director1);
 
+
 // Task 3. Printing teachers
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
@@ -45,3 +46,32 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
 
 const teacher = printTeacher("Solomon", "Nwante");
 console.log(teacher);  // Output: S. Nwante
+
+
+// Task 4. Writing a class
+interface Student {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+interface StudentConstructor {
+  new (firstName: string, lastName: string): Student;
+}
+
+class StudentClass implements Student {
+  constructor(public firstName: string, public lastName: string) {}
+
+  workOnHomework(): string {
+    return `Currently working`;
+  }
+
+  displayName(): string {
+    return `${this.firstName}`;
+  }
+}
+
+const studentData = new StudentClass("Solomon", "Nwante");
+console.log(studentData.displayName());
+console.log(studentData.workOnHomework());
