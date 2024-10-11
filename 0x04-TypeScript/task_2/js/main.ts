@@ -52,3 +52,22 @@ function createEmployee(salary: number | string) {
 console.log(createEmployee(200)); // Teacher instance
 console.log(createEmployee(1000)); // Director instance
 console.log(createEmployee('$500')); // Director instance
+
+
+// Task 6. Creating functions specific to employees
+function isDirector(employee: Director | Teacher): employee is Director {
+  return employee instanceof Director;
+}
+
+function executeWork(employee: Director | Teacher): void {
+  if (isDirector(employee)) {
+    console.log(employee.workDirectorTasks());
+  } else {
+    console.log(employee.workTeacherTasks());
+  }
+
+}
+
+// Test the implementation
+executeWork(createEmployee(200)); // Should print: Getting to work
+executeWork(createEmployee(1000)); // Should print: Getting to director tasks
